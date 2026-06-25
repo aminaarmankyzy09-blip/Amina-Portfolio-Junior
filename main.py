@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import textwrap
 
 
 class JuniorPortfolio:
@@ -69,7 +70,9 @@ class JuniorPortfolio:
         print("\n")
         self.draw_border()
         if key in self.data:
-            print(self.data[key])
+            # textwrap.fill автоматически разбивает текст на строки шириной ровно 65 символов
+            formatted_text = textwrap.fill(self.data[key], width=150)
+            print(formatted_text)
 
             # Если открыли пункт 7, автоматически запускаем файлы
             if key == "projects":
